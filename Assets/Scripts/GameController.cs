@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    [Header("Main Settings")]
+    public bool noLoosing = false;
+
+    [Header("Wall Options")]
     public Transform wallSpawnLocation;
     public GameObject[] wallVariants;
     public float wallSpeed = 5f;
@@ -36,8 +40,11 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-        playing = false;
-        Time.timeScale = 0;
-        Debug.Log("Game Over");
+        if (!noLoosing)
+        {
+            playing = false;
+            Time.timeScale = 0;
+            Debug.Log("Game Over");
+        }
     }
 }

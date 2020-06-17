@@ -411,6 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a8844864455b124d98dcfdc64626505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noLoosing: 1
   wallSpawnLocation: {fileID: 214547655}
   wallVariants:
   - {fileID: 3361614442277778442, guid: d202b64d072cd044c82297c7a41fa9f3, type: 3}
@@ -451,6 +452,7 @@ GameObject:
   - component: {fileID: 889600942}
   - component: {fileID: 889600941}
   - component: {fileID: 889600940}
+  - component: {fileID: 889600944}
   m_Layer: 0
   m_Name: Wall Despawner
   m_TagString: Wall Despawner
@@ -478,7 +480,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889600939}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -527,11 +529,23 @@ Transform:
   m_GameObject: {fileID: 889600939}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.19320822, y: 2, z: 6}
-  m_LocalScale: {x: 46, y: 18, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &889600944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889600939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da22baecfb544b548a559a67c0c88b67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &917240991
 GameObject:
   m_ObjectHideFlags: 0

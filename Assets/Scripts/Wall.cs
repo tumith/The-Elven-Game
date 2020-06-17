@@ -20,12 +20,12 @@ public class Wall : MonoBehaviour
     void FixedUpdate()
     {
         if (!gc) return;
+        if (transform.position.z > 10) Destroy(gameObject);
         transform.position += new Vector3(0, 0, gc.wallSpeed);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Tag: " + other.tag);
         if (other.tag == "Player")
         {
             PlayerScript player = other.GetComponent<PlayerScript>();
@@ -34,6 +34,5 @@ public class Wall : MonoBehaviour
             else if (jumpRequired && !player.jumping) gc.GameOver();
             else if (HoleHorizontalLoc != player.horizontalPos) gc.GameOver();
         }
-        if (other.tag == "Wall Despawner") Destroy(other.gameObject);
     }
 }
