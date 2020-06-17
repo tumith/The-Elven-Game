@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour
     public float sideMovement = .5f;
     public float jumpForce = 200f;
     public float crouchScale = .5f;
+    public float maxCrouchTime = 3f;
 
     [Header("Internal Attributes")]
     public int horizontalPos = 1;
@@ -29,7 +30,15 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetButtonDown("MoveLeft") && horizontalPos > 0) MoveLeft();
         if (Input.GetButtonDown("MoveUp") && !jumping && !crouching) Jump();
         if (Input.GetButtonDown("MoveDown") && !crouching) Crouch();
-        else if (Input.GetButtonUp("MoveDown") && crouching) UnCrouch();
+        if (crouching)
+        {
+            // Increse the crouch time if the player is on the ground
+            if (!jumping) crouchTimer += Time.deltaTime;
+
+            // Uncrouch if needed
+            if (crouchTimer > maxCrouchTime) UnCrouch();
+            else if (Input.GetButtonUp("MoveDown")) UnCrouch();
+        }
     }
 
     // Tékka hvenær hoppið er búið
@@ -61,6 +70,7 @@ public class PlayerScript : MonoBehaviour
     private void UnCrouch()
     {
         crouching = false;
+        crouchTimer = 0f;
         transform.localScale = new Vector3(1, 1, 1);
     }
 

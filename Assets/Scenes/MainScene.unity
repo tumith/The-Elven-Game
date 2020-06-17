@@ -157,6 +157,7 @@ MonoBehaviour:
   sideMovement: 1
   jumpForce: 200
   crouchScale: 0.5
+  maxCrouchTime: 1
   horizontalPos: 1
   jumping: 0
   crouching: 0
