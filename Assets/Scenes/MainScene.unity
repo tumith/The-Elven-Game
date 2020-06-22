@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a8844864455b124d98dcfdc64626505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noLoosing: 1
+  noLoosing: 0
   wallSpawnLocation: {fileID: 214547655}
   wallVariants:
   - {fileID: 3361614442277778442, guid: d202b64d072cd044c82297c7a41fa9f3, type: 3}
